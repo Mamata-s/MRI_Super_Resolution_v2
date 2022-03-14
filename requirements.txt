@@ -1,0 +1,9 @@
+matplotlib
+nibabel
+numpy
+Pillow
+PyYAML
+scikit_image
+skimage
+torch
+torchvision
