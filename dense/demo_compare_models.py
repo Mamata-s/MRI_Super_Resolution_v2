@@ -39,8 +39,8 @@ def load_model(checkpoint):
 
 parser = argparse.ArgumentParser(description='model demo')
 parser.add_argument('-factor', type=int, metavar='',default=2)
-parser.add_argument('-checkpoint1', type=str, metavar='',required=True,help='checkpoint path')
-parser.add_argument('-checkpoint2', type=str, metavar='',required=True,help='checkpoint path')
+parser.add_argument('-checkpoint1', type=str, metavar='',required=True,help='checkpoint path 1')
+parser.add_argument('-checkpoint2', type=str, metavar='',required=True,help='checkpoint path 2')
 parser.add_argument('-name', type=str, metavar='',default='demo')
 
 args = parser.parse_args()
@@ -128,7 +128,7 @@ plt.tight_layout()
 plt.show()
 
 
-save_name =str(args.name)+'_demo.png'
+save_name ='compare_'+str(args.name)+'.png'
 plt.savefig('samples/'+save_name)
     
    

@@ -31,7 +31,7 @@ def adjust_learning_rate(optimizer, epoch):
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser()
-    parser.add_argument('--outputs-dir', type=str, required=False,default='outputs')
+    parser.add_argument('--outputs-dir', type=str, required=False,default='outputs/patch')
     parser.add_argument('--weights-file', type=str)
     parser.add_argument('--growth-rate', type=int, default=4)
     parser.add_argument('--num-blocks', type=int, default=4)
@@ -63,6 +63,7 @@ if __name__ == '__main__':
 
     cudnn.benchmark = True
     device = torch.device('cuda:0' if torch.cuda.is_available() else 'cpu')
+    print('available device is ',device)
 
     torch.manual_seed(args.seed)
 

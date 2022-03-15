@@ -18,7 +18,7 @@ parser = argparse.ArgumentParser(description='model demo')
 parser.add_argument('-tfactor', type=int, metavar='',required=True,help='trained factor')
 parser.add_argument('-factor', type=int, metavar='',required=True,help='resolution factor')
 parser.add_argument('-checkpoint', type=str, metavar='',required=True,help='checkpoint path')
-parser.add_argument('-name', type=str, metavar='',required=True,help='checkpoint path')
+parser.add_argument('-name', type=str, metavar='',required=True,help='save name')
 parser.add_argument('--bicubic',
                     help='use dataset from bicubic upsampling', action='store_true')
 
@@ -65,7 +65,7 @@ dataiter = iter(val_dataloaders)
 images, labels,parsers = dataiter.next()
 
 model = SRDenseNet(num_channels=1, growth_rate=4, num_blocks = 4, num_layers=3).to(device)
-print('eval coarser network')
+print('eval SR dense Net network')
 
 
 model = nn.DataParallel(model,device_ids=[0,1,2,3])
@@ -96,6 +96,9 @@ out = out.squeeze().detach().to('cpu').numpy()
 out = ut.min_max_normalize(out)
 images = images.squeeze().to('cpu').numpy()
 labels = labels.squeeze().detach().to('cpu').numpy()
+
+print('image shape',images.shape)
+print('output shape',out.shape)
 
 # plot images
 fnsize = 27

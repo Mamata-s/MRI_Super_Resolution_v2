@@ -97,6 +97,7 @@ def create_dictionary(image_dir,label_dir):
         else:
             pass
     label_lst.sort()
+   
     dir_dictionary={}
     for i in range(len(lst)):
         dir_dictionary[lst[i]]=label_lst[i]
