@@ -1,0 +1,4 @@
+.DS_Store
+resolution_dataset/*
+dense/dataset/*
+3DCNN/dataset/*
